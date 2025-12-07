@@ -20,6 +20,9 @@ namespace ConsoleApp3
             foreach (var task in tasks)
             {
                 Console.WriteLine(task.Key);
+
+                int usersAnswer = int.Parse(Console.ReadLine());
+                if (usersAnswer == task.Value) countOfRightAnswers++;
             }
         }
     }
