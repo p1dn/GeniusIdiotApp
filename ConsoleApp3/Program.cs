@@ -26,6 +26,18 @@ namespace ConsoleApp3
                 int usersAnswer = int.Parse(Console.ReadLine());
                 if (usersAnswer == task.Value) countOfRightAnswers++;
             }
+
+            Console.WriteLine($"Количество правильных ответов: {countOfRightAnswers}");
+            Console.Write("Ваш диагноз: ");
+            switch (countOfRightAnswers)
+            {
+                case 0 : Console.WriteLine("Идиот"); break;
+                case 1 : Console.WriteLine("Кретин"); break;
+                case 2 : Console.WriteLine("Дурак"); break;
+                case 3 : Console.WriteLine("Нормальный"); break;
+                case 4 : Console.WriteLine("Талант"); break;
+                case 5 : Console.WriteLine("Гений"); break;
+            }
         }
     }
 }
