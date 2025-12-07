@@ -15,10 +15,11 @@ namespace ConsoleApp3
                 {"Пять свечей горело, две потухли. Сколько свечей осталось?", 2}
             };
 
+            Random rnd = new Random();
             int countOfRightAnswers = 0;
             int numberOfTask = 1;
 
-            foreach (var task in tasks)
+            foreach (var task in tasks.OrderBy(t => rnd.Next()))
             {
                 Console.WriteLine($"Вопрос #{numberOfTask++}");
                 Console.WriteLine(task.Key);
