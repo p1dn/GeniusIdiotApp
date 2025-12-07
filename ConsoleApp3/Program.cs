@@ -16,9 +16,11 @@ namespace ConsoleApp3
             };
 
             int countOfRightAnswers = 0;
+            int numberOfTask = 1;
 
             foreach (var task in tasks)
             {
+                Console.WriteLine($"Вопрос #{numberOfTask++}");
                 Console.WriteLine(task.Key);
 
                 int usersAnswer = int.Parse(Console.ReadLine());
