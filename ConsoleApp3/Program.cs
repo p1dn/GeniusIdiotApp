@@ -15,32 +15,39 @@ namespace ConsoleApp3
                 {"Пять свечей горело, две потухли. Сколько свечей осталось?", 2}
             };
 
-            Random rnd = new Random();
-            int countOfRightAnswers = 0;
-            int numberOfTask = 1;
-
             Console.Write("Введите ваше имя: ");
             string name = Console.ReadLine();
 
-            foreach (var task in tasks.OrderBy(t => rnd.Next()))
+            while (true)
             {
-                Console.WriteLine($"Вопрос #{numberOfTask++}");
-                Console.WriteLine(task.Key);
+                Random rnd = new Random();
+                int countOfRightAnswers = 0;
+                int numberOfTask = 1;
 
-                int usersAnswer = int.Parse(Console.ReadLine());
-                if (usersAnswer == task.Value) countOfRightAnswers++;
-            }
+                foreach (var task in tasks.OrderBy(t => rnd.Next()))
+                {
+                    Console.WriteLine($"Вопрос #{numberOfTask++}");
+                    Console.WriteLine(task.Key);
 
-            Console.WriteLine($"Количество правильных ответов: {countOfRightAnswers}");
-            Console.Write($"{name}, вот ваш диагноз: ");
-            switch (countOfRightAnswers)
-            {
-                case 0 : Console.WriteLine("Идиот"); break;
-                case 1 : Console.WriteLine("Кретин"); break;
-                case 2 : Console.WriteLine("Дурак"); break;
-                case 3 : Console.WriteLine("Нормальный"); break;
-                case 4 : Console.WriteLine("Талант"); break;
-                case 5 : Console.WriteLine("Гений"); break;
+                    int usersAnswer = int.Parse(Console.ReadLine());
+                    if (usersAnswer == task.Value) countOfRightAnswers++;
+                }
+
+                Console.WriteLine($"Количество правильных ответов: {countOfRightAnswers}");
+                Console.Write($"{name}, вот ваш диагноз: ");
+                switch (countOfRightAnswers)
+                {
+                    case 0: Console.WriteLine("Идиот"); break;
+                    case 1: Console.WriteLine("Кретин"); break;
+                    case 2: Console.WriteLine("Дурак"); break;
+                    case 3: Console.WriteLine("Нормальный"); break;
+                    case 4: Console.WriteLine("Талант"); break;
+                    case 5: Console.WriteLine("Гений"); break;
+                }
+
+                Console.WriteLine("Хотите пройти тест ещё раз ? да/нет");
+                string answer = Console.ReadLine().ToLower();
+                if (answer == "нет") break;
             }
         }
     }
