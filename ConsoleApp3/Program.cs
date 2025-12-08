@@ -28,11 +28,11 @@ namespace ConsoleApp3
 
                 GetAnswer(name, countOfRightAnswers);
 
-                if (GetUsersAnswer()) break;
+                if (UserWantToQuit()) break;
             }
         }
 
-        public static bool GetUsersAnswer()
+        public static bool UserWantToQuit()
         {
             Console.WriteLine("Хотите пройти тест ещё раз ? да/нет");
             while (true)
