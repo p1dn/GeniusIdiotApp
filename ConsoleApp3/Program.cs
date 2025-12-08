@@ -6,14 +6,12 @@ namespace ConsoleApp3
     {
         static void Main(string[] args)
         {
-            Dictionary<string, int> tasks = Questions();
+            Dictionary<string, int> tasks = GetQuestions();
 
             Console.Write("Введите ваше имя: ");
             string name = Console.ReadLine();
 
-            bool isTrue = true;
-
-            while (isTrue)
+            while (true)
             {
                 Random rnd = new Random();
                 int countOfRightAnswers = 0;
@@ -28,24 +26,26 @@ namespace ConsoleApp3
                     if (usersAnswer == task.Value) countOfRightAnswers++;
                 }
 
-                Answer(name, countOfRightAnswers);
+                GetAnswer(name, countOfRightAnswers);
 
-                Console.WriteLine("Хотите пройти тест ещё раз ? да/нет");
-                while (true)
-                {
-                    string answer = Console.ReadLine().ToLower();
-                    if (answer == "нет")
-                    {
-                        isTrue = false;
-                        break;
-                    }
-                    else if (answer == "да") break;
-                    else Console.WriteLine("Вы должны написать ('Да' или 'Нет')");
-                }
+                if (GetUsersAnswer()) break;
             }
         }
 
-        public static void Answer(string name, int countOfRightAnswers)
+        public static bool GetUsersAnswer()
+        {
+            Console.WriteLine("Хотите пройти тест ещё раз ? да/нет");
+            while (true)
+            {
+                string answer = Console.ReadLine().ToLower();
+                if (answer == "нет") return true;
+                else if (answer == "да") break;
+                else Console.WriteLine("Вы должны написать ('Да' или 'Нет')");
+            }
+            return false;
+        }
+
+        public static void GetAnswer(string name, int countOfRightAnswers)
         {
             Console.WriteLine($"Количество правильных ответов: {countOfRightAnswers}");
             Console.Write($"{name}, вот ваш диагноз: ");
@@ -60,7 +60,7 @@ namespace ConsoleApp3
             }
         }
 
-        public static Dictionary<string, int> Questions()
+        public static Dictionary<string, int> GetQuestions()
         {
             return new Dictionary<string, int>()
             {
