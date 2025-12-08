@@ -19,6 +19,9 @@ namespace ConsoleApp3
             int countOfRightAnswers = 0;
             int numberOfTask = 1;
 
+            Console.Write("Введите ваше имя: ");
+            string name = Console.ReadLine();
+
             foreach (var task in tasks.OrderBy(t => rnd.Next()))
             {
                 Console.WriteLine($"Вопрос #{numberOfTask++}");
@@ -29,7 +32,7 @@ namespace ConsoleApp3
             }
 
             Console.WriteLine($"Количество правильных ответов: {countOfRightAnswers}");
-            Console.Write("Ваш диагноз: ");
+            Console.Write($"{name}, вот ваш диагноз: ");
             switch (countOfRightAnswers)
             {
                 case 0 : Console.WriteLine("Идиот"); break;
