@@ -10,6 +10,7 @@ namespace ConsoleApp3
 
             Console.Write("Введите ваше имя: ");
             string name = Console.ReadLine();
+            string usersAnswer = null;
 
             while (true)
             {
@@ -22,8 +23,14 @@ namespace ConsoleApp3
                     Console.WriteLine($"Вопрос #{numberOfTask++}");
                     Console.WriteLine(task.Key);
 
-                    int usersAnswer = int.Parse(Console.ReadLine());
-                    if (usersAnswer == task.Value) countOfRightAnswers++;
+                    while (true)
+                    {
+                        usersAnswer = Console.ReadLine();
+                        if (usersAnswer.All(char.IsDigit)) break;
+                        else Console.WriteLine("Введите число - '123'");
+                    }
+
+                    if (Convert.ToInt32(usersAnswer) == task.Value) countOfRightAnswers++;
                 }
 
                 GetAnswer(name, countOfRightAnswers);
