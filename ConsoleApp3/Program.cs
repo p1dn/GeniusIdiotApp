@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace ConsoleApp3
+﻿namespace ConsoleApp3
 {
     internal class Program
     {
@@ -10,7 +8,7 @@ namespace ConsoleApp3
 
             Console.Write("Введите ваше имя: ");
             string name = Console.ReadLine();
-            string usersAnswer = null;
+            string userAnswer = null;
 
             while (true)
             {
@@ -23,20 +21,25 @@ namespace ConsoleApp3
                     Console.WriteLine($"Вопрос #{numberOfTask++}");
                     Console.WriteLine(task.Key);
 
-                    while (true)
-                    {
-                        usersAnswer = Console.ReadLine();
-                        if (usersAnswer.All(char.IsDigit)) break;
-                        else Console.WriteLine("Введите число - '123'");
-                    }
-
-                    if (Convert.ToInt32(usersAnswer) == task.Value) countOfRightAnswers++;
+                    if (VerifiedUserAnswer(userAnswer) == task.Value) countOfRightAnswers++;
                 }
 
                 GetAnswer(name, countOfRightAnswers);
 
                 if (UserWantToQuit()) break;
             }
+        }
+
+        public static int VerifiedUserAnswer(string userAnswer)
+        {
+            while (true)
+            {
+                userAnswer = Console.ReadLine();
+
+                if (userAnswer.All(char.IsDigit)) break;
+                else Console.WriteLine("Введите число - '123'");
+            }
+            return Convert.ToInt32(userAnswer);
         }
 
         public static bool UserWantToQuit()
