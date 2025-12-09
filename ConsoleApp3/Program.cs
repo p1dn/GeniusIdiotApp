@@ -36,10 +36,9 @@
             {
                 userAnswer = Console.ReadLine();
 
-                if (userAnswer.All(char.IsDigit)) break;
+                if (userAnswer.All(char.IsDigit)) return Convert.ToInt32(userAnswer);
                 else Console.WriteLine("Введите число - '123'");
             }
-            return Convert.ToInt32(userAnswer);
         }
 
         public static bool UserWantToQuit()
