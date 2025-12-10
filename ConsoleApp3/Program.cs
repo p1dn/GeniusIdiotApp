@@ -5,15 +5,15 @@
         static void Main(string[] args)
         {
             Dictionary<string, int> tasks = GetQuestions();
+            User user = new User();
+            string userAnswer = null;
 
             Console.Write("Введите ваше имя: ");
-            string name = Console.ReadLine();
-            string userAnswer = null;
+            user.Name = Console.ReadLine();
 
             while (true)
             {
                 Random rnd = new Random();
-                int countOfRightAnswers = 0;
                 int numberOfTask = 1;
 
                 foreach (var task in tasks.OrderBy(t => rnd.Next()))
@@ -21,10 +21,10 @@
                     Console.WriteLine($"Вопрос #{numberOfTask++}");
                     Console.WriteLine(task.Key);
 
-                    if (VerifiedUserAnswer(userAnswer) == task.Value) countOfRightAnswers++;
+                    if (VerifiedUserAnswer(userAnswer) == task.Value) user.CountOfRightAnswers++;
                 }
 
-                GetAnswer(name, countOfRightAnswers);
+                GetAnswer(user.Name, user.CountOfRightAnswers);
 
                 if (UserWantToQuit()) break;
             }
