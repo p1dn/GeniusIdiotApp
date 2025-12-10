@@ -66,6 +66,7 @@
                 case 3: Console.WriteLine("Нормальный"); break;
                 case 4: Console.WriteLine("Талант"); break;
                 case 5: Console.WriteLine("Гений"); break;
+                default: Console.WriteLine("Эйнштейн"); break;
             }
         }
 
