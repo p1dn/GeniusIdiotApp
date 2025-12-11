@@ -5,6 +5,7 @@
         static void Main(string[] args)
         {
             Dictionary<string, int> tasks = GetQuestions();
+            UserManager userManager = new UserManager();
 
             while (true)
             {
@@ -26,6 +27,7 @@
                 }
 
                 GetAnswer(user.Name, user.CountOfRightAnswers);
+                userManager.AddUser(user);
 
                 if (UserWantToQuit()) break;
             }
