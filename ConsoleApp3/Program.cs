@@ -8,11 +8,12 @@
             User user = new User();
             string userAnswer = null;
 
-            Console.Write("Введите ваше имя: ");
-            user.Name = Console.ReadLine();
-
             while (true)
             {
+
+                Console.Write("Введите ваше имя: ");
+                user.Name = Console.ReadLine();
+
                 Random rnd = new Random();
                 int numberOfTask = 1;
 
