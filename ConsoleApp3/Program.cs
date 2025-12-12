@@ -11,7 +11,6 @@
             while (true)
             {
                 User user = new User();
-                string userAnswer = null;
 
                 Console.Write("Введите ваше имя: ");
                 user.Name = Console.ReadLine();
@@ -24,7 +23,7 @@
                     Console.WriteLine($"Вопрос #{numberOfTask++}");
                     Console.WriteLine(task.Key);
 
-                    if (VerifiedUserAnswer(userAnswer) == task.Value) user.CountOfRightAnswers++;
+                    if (VerifiedUserAnswer() == task.Value) user.CountOfRightAnswers++;
                 }
 
                 GetAnswer(user.Name, user.CountOfRightAnswers);
@@ -43,14 +42,22 @@
             userManager.Save();
         }
 
-        public static int VerifiedUserAnswer(string userAnswer)
+        public static int VerifiedUserAnswer()
         {
             while (true)
             {
-                userAnswer = Console.ReadLine();
-
-                if (userAnswer.All(char.IsDigit)) return Convert.ToInt32(userAnswer);
-                else Console.WriteLine("Введите число - '123'");
+                try
+                {
+                    return Convert.ToInt32(Console.ReadLine());
+                }
+                catch(OverflowException)
+                {
+                    Console.WriteLine("Слишком большое число");
+                }
+                catch
+                {
+                    Console.WriteLine("Введите число");
+                }
             }
         }
 
