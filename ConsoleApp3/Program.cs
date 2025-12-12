@@ -6,6 +6,7 @@
         {
             Dictionary<string, int> tasks = GetQuestions();
             UserManager userManager = new UserManager();
+            userManager.Load();
 
             while (true)
             {
@@ -31,6 +32,15 @@
 
                 if (UserWantToQuit()) break;
             }
+
+            Console.WriteLine("Ура! Вы прошли тест, теперь вы можете посмотреть таблицу с результатами других людей:");
+
+            foreach (var u in userManager.Users)
+            {
+                Console.WriteLine($"{u.Name} | {u.CountOfRightAnswers}");
+            }
+
+            userManager.Save();
         }
 
         public static int VerifiedUserAnswer(string userAnswer)
