@@ -1,4 +1,6 @@
-﻿namespace ConsoleApp3
+﻿using System.Xml.Linq;
+
+namespace ConsoleApp3
 {
     internal class Program
     {
@@ -26,7 +28,8 @@
                     if (VerifiedUserAnswer() == task.Value) user.CountOfRightAnswers++;
                 }
 
-                GetAnswer(user.Name, user.CountOfRightAnswers);
+                Console.WriteLine($"Количество правильных ответов: {user.CountOfRightAnswers}");
+                Console.WriteLine($"{user.Name}, вот ваш диагноз: {user.GetAnswer()}");
                 userManager.AddUser(user);
 
                 if (UserWantToQuit()) break;
@@ -36,7 +39,7 @@
 
             foreach (var u in userManager.Users)
             {
-                Console.WriteLine($"{u.Name} | {u.CountOfRightAnswers}");
+                Console.WriteLine($"{u.Name} | {u.GetAnswer()}");
             }
 
             userManager.Save();
@@ -72,22 +75,6 @@
                 else Console.WriteLine("Вы должны написать ('Да' или 'Нет')");
             }
             return false;
-        }
-
-        public static void GetAnswer(string name, int countOfRightAnswers)
-        {
-            Console.WriteLine($"Количество правильных ответов: {countOfRightAnswers}");
-            Console.Write($"{name}, вот ваш диагноз: ");
-            switch (countOfRightAnswers)
-            {
-                case 0: Console.WriteLine("Идиот"); break;
-                case 1: Console.WriteLine("Кретин"); break;
-                case 2: Console.WriteLine("Дурак"); break;
-                case 3: Console.WriteLine("Нормальный"); break;
-                case 4: Console.WriteLine("Талант"); break;
-                case 5: Console.WriteLine("Гений"); break;
-                default: Console.WriteLine("Эйнштейн"); break;
-            }
         }
 
         public static Dictionary<string, int> GetQuestions()
