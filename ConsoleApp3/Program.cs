@@ -37,9 +37,10 @@ namespace ConsoleApp3
 
             Console.WriteLine("Ура! Вы прошли тест, теперь вы можете посмотреть таблицу с результатами других людей:");
 
+            Console.WriteLine($"{"Имя",-12} {"Ответы",-12} {"Диагноз",-12}");
             foreach (var u in userManager.Users)
             {
-                Console.WriteLine($"{u.Name} | {u.GetAnswer()}");
+                Console.WriteLine($"{u.Name,-12} {u.CountOfRightAnswers,-12} {u.GetAnswer(),-12}");
             }
 
             userManager.Save();
