@@ -7,6 +7,7 @@ namespace ConsoleApp3
 {
     public static class QuestionRepository
     {
+        private static Random rnd = new Random();
         private static Dictionary<string, int> GetQuestions()
         {
             return new Dictionary<string, int>()
@@ -40,7 +41,6 @@ namespace ConsoleApp3
 
         public static int GetTestResult()
         {
-            Random rnd = new Random();
             int numberOfTask = 1;
             int counter = 0;
 
