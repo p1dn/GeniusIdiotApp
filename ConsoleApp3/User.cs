@@ -6,7 +6,7 @@ namespace ConsoleApp3
 {
     public class User
     {
-        public string Name { get; set; } = "Гость";
+        public string Name { get; set; } = null;
         public int CountOfRightAnswers { get; set; } = 0;
 
         public string GetAnswer()
