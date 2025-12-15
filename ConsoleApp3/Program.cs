@@ -6,21 +6,22 @@ namespace ConsoleApp3
     {
         static void Main(string[] args)
         {
+            QuestionRepository questionRepository = new QuestionRepository();
             UserManager userManager = new UserManager();
             userManager.Load();
 
             while (true)
             {
                 User user = new User();
-                user.Name = userManager.GetNameOfUser();
-                user.CountOfRightAnswers = QuestionRepository.GetTestResult();
+                user.Name = ConsoleView.GetNameOfUser();
+                user.CountOfRightAnswers = TestManager.GetTestResult(questionRepository);
 
-                userManager.ShowUserResult(user);
+                ConsoleView.ShowUserResult(user, userManager.Users);
 
-                if (userManager.UserWantToQuit()) break;
+                if (ConsoleView.UserWantToQuit()) break;
             }
 
-            userManager.ShowUserList();
+            ConsoleView.ShowUserList(userManager.Users);
             userManager.Save();
         }
     }
