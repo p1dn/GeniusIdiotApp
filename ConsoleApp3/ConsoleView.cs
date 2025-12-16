@@ -38,11 +38,10 @@ namespace ConsoleApp3
             else return name;
         }
 
-        public static void ShowUserResult(User user, List<User> Users)
+        public static void ShowUserResult(User user)
         {
             Console.WriteLine($"Количество правильных ответов: {user.CountOfRightAnswers}");
             Console.WriteLine($"{user.Name}, вот ваш диагноз: {GetDiagnosis(user.CountOfRightAnswers)}");
-            Users.Add(user);
         }
 
         public static int VerifiedUserAnswer()
@@ -77,5 +76,34 @@ namespace ConsoleApp3
                 default: return ("Эйнштейн");
             }
         }
+
+        public static void ShowMenu(string name)
+        {
+            Console.WriteLine($"Добро пожаловать {name}");
+            Console.WriteLine("1. Пройти тест");
+            Console.WriteLine("2. Добавить вопрос");
+            Console.WriteLine("3. Удалить вопрос");
+
+            Console.Write("Введите число: ");
+        }
+
+        public static void ShowQuestion(string problem, int numberOfTask)
+        {
+            Console.WriteLine($"Вопрос #{numberOfTask++}");
+            Console.WriteLine(problem);
+        }
+
+        public static void ShowAllQuestions()
+        {
+            for (int i = 0; i < QuestionRepository.Questions.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. Вопрос: {QuestionRepository.Questions[i].Problem} Ответ: {QuestionRepository.Questions[i].CorrectAnswer}");
+            }
+        }
+
+        public static void AskQuestionIndex() => Console.Write("Введите номер вопроса, которого хотите удалить: ");
+        public static void DeletedQuestion() => Console.WriteLine("Вопрос успешно удалён");
+
+        public static void DontHaveYourNumber() => Console.WriteLine("Такого номера не существует");
     }
 }

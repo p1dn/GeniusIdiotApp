@@ -6,23 +6,28 @@ namespace ConsoleApp3
     {
         static void Main(string[] args)
         {
-            QuestionRepository questionRepository = new QuestionRepository();
-            UserManager userManager = new UserManager();
-            userManager.Load();
+            UserManager.Load();
 
             while (true)
             {
                 User user = new User();
                 user.Name = ConsoleView.GetNameOfUser();
-                user.CountOfRightAnswers = TestManager.GetTestResult(questionRepository);
 
-                ConsoleView.ShowUserResult(user, userManager.Users);
+                ConsoleView.ShowMenu(user.Name);
+
+                switch (ConsoleView.VerifiedUserAnswer())
+                {
+                    case 1: MenuManager.StartTest(user); break;
+                    case 2: MenuManager.AddQuestion(); break;
+                    case 3: MenuManager.RemoveQuestion(); break;
+                    default: ConsoleView.DontHaveYourNumber(); break;
+                }
 
                 if (ConsoleView.UserWantToQuit()) break;
             }
 
-            ConsoleView.ShowUserList(userManager.Users);
-            userManager.Save();
+            ConsoleView.ShowUserList(UserManager.Users);
+            UserManager.Save();
         }
     }
 }

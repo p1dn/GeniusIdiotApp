@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleApp3
 {
-    internal class Question
+    public class Question
     {
         public string Problem { get; }
         public int CorrectAnswer { get; }

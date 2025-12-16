@@ -4,19 +4,18 @@ using System.Text;
 
 namespace ConsoleApp3
 {
-    internal static class TestManager
+    public static class TestManager
     {
         private static Random rnd = new Random();
 
-        public static int GetTestResult(QuestionRepository questionRepository)
+        public static int GetTestResult()
         {
             int numberOfTask = 1;
             int counter = 0;
 
-            foreach (var question in questionRepository.Questions.OrderBy(t => rnd.Next()))
+            foreach (var question in QuestionRepository.Questions.OrderBy(t => rnd.Next()))
             {
-                Console.WriteLine($"Вопрос #{numberOfTask++}");
-                Console.WriteLine(question.Problem);
+                ConsoleView.ShowQuestion(question.Problem, numberOfTask);
 
                 if (ConsoleView.VerifiedUserAnswer() == question.CorrectAnswer) counter++;
             }

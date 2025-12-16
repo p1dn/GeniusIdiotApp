@@ -4,9 +4,9 @@ using System.Text;
 
 namespace ConsoleApp3
 {
-    internal class QuestionRepository
+    public static class QuestionRepository
     {
-        public List<Question> Questions { get; set; } = new List<Question>
+        public static List<Question> Questions { get; set; } = new List<Question>
         {
             new Question("Сколько будет два плюс два умноженное на два?", 6),
             new Question("Бревно нужно распилить на 10 частей. Сколько распилов нужно сделать?", 9),

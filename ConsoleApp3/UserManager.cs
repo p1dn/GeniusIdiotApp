@@ -5,24 +5,24 @@ using System.Text.Json;
 
 namespace ConsoleApp3
 {
-    public class UserManager
+    public static class UserManager
     {
-        public List<User> Users = new List<User>();
+        public static List<User> Users { get; set; } = new List<User>();
 
-        private string path = Path.Combine(
+        private static string path = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
             "ConsoleApp3",
             "users.json"
         );
 
-        public void Save()
+        public static void Save()
         {
             Directory.CreateDirectory(Path.GetDirectoryName(path));
             string json = JsonSerializer.Serialize(Users, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(path, json);
         }
 
-        public void Load()
+        public static void Load()
         {
             if (!File.Exists(path)) return;
 
