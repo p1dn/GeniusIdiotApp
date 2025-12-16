@@ -16,7 +16,7 @@ namespace ConsoleApp3
         {
             ConsoleView.ShowAllQuestions();
             ConsoleView.AskQuestionIndex();
-            QuestionRepository.Questions.RemoveAt(ConsoleView.VerifiedUserAnswer());
+            QuestionRepository.Questions.RemoveAt(ConsoleView.VerifiedUserAnswer() - 1);
             ConsoleView.DeletedQuestion();
         }
 

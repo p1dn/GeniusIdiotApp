@@ -16,6 +16,7 @@ namespace ConsoleApp3
             foreach (var question in QuestionRepository.Questions.OrderBy(t => rnd.Next()))
             {
                 ConsoleView.ShowQuestion(question.Problem, numberOfTask);
+                numberOfTask++;
 
                 if (ConsoleView.VerifiedUserAnswer() == question.CorrectAnswer) counter++;
             }

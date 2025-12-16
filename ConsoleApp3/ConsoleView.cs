@@ -19,12 +19,12 @@ namespace ConsoleApp3
 
         public static bool UserWantToQuit()
         {
-            Console.WriteLine("Хотите пройти тест ещё раз ? да/нет");
+            Console.WriteLine("Вы хотите выйти ? да/нет");
             while (true)
             {
                 string answer = Console.ReadLine().ToLower();
-                if (answer == "нет") return true;
-                else if (answer == "да") return false;
+                if (answer == "нет") return false;
+                else if (answer == "да") return true;
                 else Console.WriteLine("Вы должны написать ('Да' или 'Нет')");
             }
         }
@@ -89,7 +89,7 @@ namespace ConsoleApp3
 
         public static void ShowQuestion(string problem, int numberOfTask)
         {
-            Console.WriteLine($"Вопрос #{numberOfTask++}");
+            Console.WriteLine($"Вопрос #{numberOfTask}");
             Console.WriteLine(problem);
         }
 
