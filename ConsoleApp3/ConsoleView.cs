@@ -103,7 +103,8 @@ namespace ConsoleApp3
 
         public static void AskQuestionIndex() => Console.Write("Введите номер вопроса, которого хотите удалить: ");
         public static void DeletedQuestion() => Console.WriteLine("Вопрос успешно удалён");
-
         public static void DontHaveYourNumber() => Console.WriteLine("Такого номера не существует");
+        public static void AskNewProblem() => Console.WriteLine("Введите новый вопрос:");
+        public static void AskNewCorrectAnswer() => Console.WriteLine("Введите ответ для нового вопроса:");
     }
 }
