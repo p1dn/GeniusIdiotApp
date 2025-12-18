@@ -101,10 +101,32 @@ namespace ConsoleApp3
             }
         }
 
-        public static void AskQuestionIndex() => Console.Write("Введите номер вопроса, которого хотите удалить: ");
-        public static void DeletedQuestion() => Console.WriteLine("Вопрос успешно удалён");
+        public static void AskQuestionIndex()
+        {
+            Console.Write("Введите номер вопроса, который хотите удалить: ");
+
+            while (true)
+            {
+                int answer = VerifiedUserAnswer() - 1;
+                if (answer < QuestionRepository.Questions.Count && answer >= 0)
+                {
+                    QuestionRepository.Questions.RemoveAt(answer);
+                    Console.WriteLine("Вопрос успешно удалён");
+                    break;
+                }
+                else DontHaveYourNumber();
+            }
+        }
         public static void DontHaveYourNumber() => Console.WriteLine("Такого номера не существует");
-        public static void AskNewProblem() => Console.WriteLine("Введите новый вопрос:");
-        public static void AskNewCorrectAnswer() => Console.WriteLine("Введите ответ для нового вопроса:");
+        public static void AddNewQuestion()
+        {
+            Console.WriteLine("Введите новый вопрос:");
+            string problem = Console.ReadLine();
+
+            Console.WriteLine("Введите ответ для нового вопроса:");
+            int correctAnswer = VerifiedUserAnswer();
+
+            QuestionRepository.Questions.Add(new Question(problem, correctAnswer));
+        }
     }
 }

@@ -10,20 +10,13 @@ namespace ConsoleApp3
         public static void AddQuestion()
         {
             ConsoleView.ShowAllQuestions();
-            ConsoleView.AskNewProblem();
-            string newProblem = Console.ReadLine();
-            ConsoleView.AskNewCorrectAnswer();
-            int newCorrectAnswer = ConsoleView.VerifiedUserAnswer();
-
-            QuestionRepository.Questions.Add(new Question(newProblem, newCorrectAnswer));
+            ConsoleView.AddNewQuestion();
         }
 
         public static void RemoveQuestion()
         {
             ConsoleView.ShowAllQuestions();
             ConsoleView.AskQuestionIndex();
-            QuestionRepository.Questions.RemoveAt(ConsoleView.VerifiedUserAnswer() - 1);
-            ConsoleView.DeletedQuestion();
         }
 
         public static void StartTest(User user)
