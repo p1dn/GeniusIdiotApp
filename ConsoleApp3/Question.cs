@@ -6,9 +6,10 @@ namespace ConsoleApp3
 {
     public class Question
     {
-        public string Problem { get; }
-        public int CorrectAnswer { get; }
+        public string Problem { get; set; }
+        public int CorrectAnswer { get; set; }
 
+        public Question() { }
         public Question(string problem, int correctAnswer)
         {
             Problem = problem;

@@ -7,6 +7,7 @@ namespace ConsoleApp3
         static void Main(string[] args)
         {
             UserManager.Load();
+            QuestionRepository.Load();
 
             while (true)
             {
@@ -28,6 +29,7 @@ namespace ConsoleApp3
 
             ConsoleView.ShowUserList(UserManager.Users);
             UserManager.Save();
+            QuestionRepository.Save();
         }
     }
 }
