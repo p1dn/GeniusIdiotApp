@@ -19,12 +19,12 @@ namespace ConsoleApp3
 
         public static bool UserWantToQuit()
         {
-            Console.WriteLine("Вы хотите выйти ? да/нет");
+            Console.WriteLine("Вы уверены что хотите выйти ? да/нет");
             while (true)
             {
                 string answer = Console.ReadLine().ToLower();
-                if (answer == "нет") return false;
-                else if (answer == "да") return true;
+                if (answer == "нет") return true;
+                else if (answer == "да") return false;
                 else Console.WriteLine("Вы должны написать ('Да' или 'Нет')");
             }
         }
@@ -83,6 +83,7 @@ namespace ConsoleApp3
             Console.WriteLine("1. Пройти тест");
             Console.WriteLine("2. Добавить вопрос");
             Console.WriteLine("3. Удалить вопрос");
+            Console.WriteLine("4. Выйти");
 
             Console.Write("Введите число: ");
         }
@@ -93,40 +94,39 @@ namespace ConsoleApp3
             Console.WriteLine(problem);
         }
 
-        public static void ShowAllQuestions()
+        public static void ShowAllQuestions(List<Question> questions)
         {
-            for (int i = 0; i < QuestionRepository.Questions.Count; i++)
+            for (int i = 0; i < questions.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. Вопрос: {QuestionRepository.Questions[i].Problem} Ответ: {QuestionRepository.Questions[i].CorrectAnswer}");
+                Console.WriteLine($"{i + 1}. Вопрос: {questions[i].Problem} Ответ: {questions[i].CorrectAnswer}");
             }
         }
 
-        public static void AskQuestionIndex()
+        public static int AskQuestionIndex(int questionsCount)
         {
             Console.Write("Введите номер вопроса, который хотите удалить: ");
 
             while (true)
             {
                 int answer = VerifiedUserAnswer() - 1;
-                if (answer < QuestionRepository.Questions.Count && answer >= 0)
-                {
-                    QuestionRepository.Questions.RemoveAt(answer);
-                    Console.WriteLine("Вопрос успешно удалён");
-                    break;
-                }
+                if (answer < questionsCount && answer >= 0) return answer;
                 else DontHaveYourNumber();
             }
         }
+        
+        public static void SuccessfullyCompleted() => Console.WriteLine("Успешно выполнено");
         public static void DontHaveYourNumber() => Console.WriteLine("Такого номера не существует");
-        public static void AddNewQuestion()
+        public static Question AddNewQuestion()
         {
+            Question question = new Question();
+
             Console.WriteLine("Введите новый вопрос:");
-            string problem = Console.ReadLine();
+            question.Problem = Console.ReadLine();
 
             Console.WriteLine("Введите ответ для нового вопроса:");
-            int correctAnswer = VerifiedUserAnswer();
+            question.CorrectAnswer = VerifiedUserAnswer();
 
-            QuestionRepository.Questions.Add(new Question(problem, correctAnswer));
+            return question;
         }
     }
 }

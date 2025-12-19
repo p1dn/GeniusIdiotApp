@@ -6,10 +6,14 @@ namespace ConsoleApp3
     {
         static void Main(string[] args)
         {
-            UserManager.Load();
-            QuestionRepository.Load();
+            UserManager userManager = new UserManager();
+            QuestionRepository questionRepository = new QuestionRepository();
+            bool userDontWantToQuit = true;
 
-            while (true)
+            userManager.Load();
+            questionRepository.Load();
+
+            while (userDontWantToQuit)
             {
                 User user = new User();
                 user.Name = ConsoleView.GetNameOfUser();
@@ -21,15 +25,13 @@ namespace ConsoleApp3
                     case 1: MenuManager.StartTest(user); break;
                     case 2: MenuManager.AddQuestion(); break;
                     case 3: MenuManager.RemoveQuestion(); break;
+                    case 4: userDontWantToQuit = ConsoleView.UserWantToQuit(); break;
                     default: ConsoleView.DontHaveYourNumber(); break;
                 }
-
-                if (ConsoleView.UserWantToQuit()) break;
             }
 
-            ConsoleView.ShowUserList(UserManager.Users);
-            UserManager.Save();
-            QuestionRepository.Save();
+            userManager.Save();
+            questionRepository.Save();
         }
     }
 }

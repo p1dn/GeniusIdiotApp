@@ -5,24 +5,24 @@ using System.Text.Json;
 
 namespace ConsoleApp3
 {
-    public static class QuestionRepository
+    public class QuestionRepository
     {
         public static List<Question> Questions { get; set; } = new List<Question>();
 
-        private static string path = Path.Combine(
+        private string path = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
             "ConsoleApp3",
             "questions.json"
         );
 
-        public static void Save()
+        public void Save()
         {
             Directory.CreateDirectory(Path.GetDirectoryName(path));
             string json = JsonSerializer.Serialize(Questions, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(path, json);
         }
 
-        public static void Load()
+        public void Load()
         {
             if (!File.Exists(path))
             {
@@ -36,7 +36,7 @@ namespace ConsoleApp3
             if (Questions == null || Questions.Count == 0) Questions = GetDefaultQuestions();
         }
 
-        private static List<Question> GetDefaultQuestions()
+        private List<Question> GetDefaultQuestions()
         {
             return new List<Question>
             {

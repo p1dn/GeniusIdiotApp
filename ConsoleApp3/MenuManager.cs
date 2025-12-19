@@ -9,21 +9,25 @@ namespace ConsoleApp3
 
         public static void AddQuestion()
         {
-            ConsoleView.ShowAllQuestions();
-            ConsoleView.AddNewQuestion();
+            ConsoleView.ShowAllQuestions(QuestionRepository.Questions);
+            QuestionRepository.Questions.Add(ConsoleView.AddNewQuestion());
+            ConsoleView.SuccessfullyCompleted();
         }
 
         public static void RemoveQuestion()
         {
-            ConsoleView.ShowAllQuestions();
-            ConsoleView.AskQuestionIndex();
+            ConsoleView.ShowAllQuestions(QuestionRepository.Questions);
+            QuestionRepository.Questions.RemoveAt(ConsoleView.AskQuestionIndex(QuestionRepository.Questions.Count));
+            ConsoleView.SuccessfullyCompleted();
         }
 
         public static void StartTest(User user)
         {
-            user.CountOfRightAnswers = TestManager.GetTestResult();
+            Random rnd = new Random();
+            user.CountOfRightAnswers = TestManager.GetTestResult(rnd, QuestionRepository.Questions);
             ConsoleView.ShowUserResult(user);
             UserManager.Users.Add(user);
+            ConsoleView.ShowUserList(UserManager.Users);
         }
     }
 }

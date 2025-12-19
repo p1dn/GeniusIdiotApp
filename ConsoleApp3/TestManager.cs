@@ -6,14 +6,12 @@ namespace ConsoleApp3
 {
     public static class TestManager
     {
-        private static Random rnd = new Random();
-
-        public static int GetTestResult()
+        public static int GetTestResult(Random rnd, List<Question> questions)
         {
             int numberOfTask = 1;
             int counter = 0;
 
-            foreach (var question in QuestionRepository.Questions.OrderBy(t => rnd.Next()))
+            foreach (var question in questions.OrderBy(t => rnd.Next()))
             {
                 ConsoleView.ShowQuestion(question.Problem, numberOfTask);
                 numberOfTask++;
