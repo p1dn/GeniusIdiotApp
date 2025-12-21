@@ -12,6 +12,7 @@ namespace WinFormsAppGeniusIdiot
         private void Form1_Load(object sender, EventArgs e)
         {
             List<Question> questions = QuestionRepository.GetDefaultQuestions();
+            questionLabel.Text = questions[0].Problem;
         }
 
         private void nextButton_Click(object sender, EventArgs e)

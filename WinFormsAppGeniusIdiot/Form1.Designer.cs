@@ -50,7 +50,7 @@
             // 
             questionLabel.AutoSize = true;
             questionLabel.Font = new Font("Arial", 36F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            questionLabel.Location = new Point(720, 222);
+            questionLabel.Location = new Point(12, 252);
             questionLabel.Name = "questionLabel";
             questionLabel.Size = new Size(364, 56);
             questionLabel.TabIndex = 1;
@@ -71,9 +71,9 @@
             // userAnswerTextBox
             // 
             userAnswerTextBox.Font = new Font("Arial", 72F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            userAnswerTextBox.Location = new Point(869, 510);
+            userAnswerTextBox.Location = new Point(12, 510);
             userAnswerTextBox.Name = "userAnswerTextBox";
-            userAnswerTextBox.Size = new Size(108, 118);
+            userAnswerTextBox.Size = new Size(1763, 118);
             userAnswerTextBox.TabIndex = 3;
             userAnswerTextBox.TextChanged += userAnswerTextBox_TextChanged;
             // 
@@ -81,7 +81,7 @@
             // 
             errorLabel.AutoSize = true;
             errorLabel.Font = new Font("Arial", 24F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            errorLabel.Location = new Point(807, 353);
+            errorLabel.Location = new Point(12, 650);
             errorLabel.Name = "errorLabel";
             errorLabel.Size = new Size(232, 37);
             errorLabel.TabIndex = 4;
