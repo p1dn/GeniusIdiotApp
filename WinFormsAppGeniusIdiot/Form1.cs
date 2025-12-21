@@ -30,6 +30,14 @@ namespace WinFormsAppGeniusIdiot
             if (userAnswer == currentQuestion.CorrectAnswer) user.CountOfRightAnswers++;
             questions.Remove(currentQuestion);
 
+            bool endGame = questions.Count == 0;
+            if (endGame)
+            {
+                string showDiagnosis = $"{user.Name}, вот ваш диагноз: {ConsoleView.GetDiagnosis(user.CountOfRightAnswers)}";
+                MessageBox.Show(showDiagnosis);
+                return;
+            }
+
             showNextQuestion();
         }
 
