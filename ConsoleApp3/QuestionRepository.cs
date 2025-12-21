@@ -36,7 +36,7 @@ namespace ConsoleApp3
             if (Questions == null || Questions.Count == 0) Questions = GetDefaultQuestions();
         }
 
-        private List<Question> GetDefaultQuestions()
+        public static List<Question> GetDefaultQuestions()
         {
             return new List<Question>
             {
