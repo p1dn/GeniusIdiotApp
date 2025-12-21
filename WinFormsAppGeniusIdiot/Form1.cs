@@ -1,4 +1,4 @@
-using ConsoleApp3;
+using ClassLibraryGeniusIdiot;
 using System.Diagnostics.Metrics;
 
 namespace WinFormsAppGeniusIdiot

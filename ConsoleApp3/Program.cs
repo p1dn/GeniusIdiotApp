@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using ClassLibraryGeniusIdiot;
+using System.Xml.Linq;
 
 namespace ConsoleApp3
 {
