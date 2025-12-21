@@ -7,7 +7,8 @@ namespace WinFormsAppGeniusIdiot
     {
         private List<Question> questions;
         private Question currentQuestion;
-        private User user = new User();
+        private User user;
+        private int questionNumber;
 
         public Form1()
         {
@@ -17,7 +18,8 @@ namespace WinFormsAppGeniusIdiot
         private void Form1_Load(object sender, EventArgs e)
         {
             questions = QuestionRepository.GetDefaultQuestions();
-            user.Name = "Unknown";
+            new User("Unknown");
+            questionNumber = 1;
 
             showNextQuestion();
         }
@@ -48,6 +50,8 @@ namespace WinFormsAppGeniusIdiot
 
             currentQuestion = questions[randomIndex];
             questionLabel.Text = currentQuestion.Problem;
+
+            questionNumberLabel.Text = $"Вопрос: {questionNumber++}";
         }
 
         private void questionNumberLabel_Click(object sender, EventArgs e)

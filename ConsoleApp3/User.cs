@@ -8,5 +8,10 @@ namespace ConsoleApp3
     {
         public string Name { get; set; } = null;
         public int CountOfRightAnswers { get; set; } = 0;
+
+        public User(string name)
+        {
+            Name = name;
+        }
     }
 }

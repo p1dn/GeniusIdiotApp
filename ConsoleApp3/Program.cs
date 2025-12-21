@@ -15,8 +15,7 @@ namespace ConsoleApp3
 
             while (userDontWantToQuit)
             {
-                User user = new User();
-                user.Name = ConsoleView.GetNameOfUser();
+                User user = new User(ConsoleView.GetNameOfUser());
 
                 ConsoleView.ShowMenu(user.Name);
 
