@@ -18,7 +18,7 @@ namespace WinFormsAppGeniusIdiot
         private void Form1_Load(object sender, EventArgs e)
         {
             questions = QuestionRepository.GetDefaultQuestions();
-            new User("Unknown");
+            user = new User("Unknown");
             questionNumber = 1;
 
             showNextQuestion();
