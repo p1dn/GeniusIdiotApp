@@ -3,14 +3,14 @@ using System.Diagnostics.Metrics;
 
 namespace WinFormsAppGeniusIdiot
 {
-    public partial class Form1 : Form
+    public partial class TestForm : Form
     {
         private List<Question> questions;
         private Question currentQuestion;
         private User user;
         private int questionNumber;
 
-        public Form1()
+        public TestForm()
         {
             InitializeComponent();
         }

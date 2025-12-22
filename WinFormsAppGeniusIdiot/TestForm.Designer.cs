@@ -1,6 +1,6 @@
 ﻿namespace WinFormsAppGeniusIdiot
 {
-    partial class Form1
+    partial class TestForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -88,7 +88,7 @@
             errorLabel.Text = "Текст ошибки";
             errorLabel.Click += errorLabel_Click;
             // 
-            // Form1
+            // TestForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -98,8 +98,8 @@
             Controls.Add(questionNumberLabel);
             Controls.Add(questionLabel);
             Controls.Add(nextButton);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "TestForm";
+            Text = "Тест";
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
