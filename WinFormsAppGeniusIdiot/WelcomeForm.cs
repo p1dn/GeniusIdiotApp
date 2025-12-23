@@ -23,5 +23,20 @@ namespace WinFormsAppGeniusIdiot
         {
 
         }
+
+        private void userNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            var menu = new MenuForm(userNameTextBox.Text);
+
+            menu.FormClosed += (s, args) => this.Close();
+
+            this.Hide();
+            menu.Show();
+        }
     }
 }

@@ -9,16 +9,22 @@ namespace WinFormsAppGeniusIdiot
         private Question currentQuestion;
         private User user;
         private int questionNumber;
+        private readonly string userName;
 
         public TestForm()
         {
             InitializeComponent();
         }
 
+        public TestForm(string userName) : this()
+        {
+            this.userName = userName;
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             questions = QuestionRepository.GetDefaultQuestions();
-            user = new User("Unknown");
+            user = new User(userName);
             questionNumber = 1;
 
             showNextQuestion();

@@ -38,7 +38,7 @@
             // nextButton
             // 
             nextButton.Font = new Font("Arial", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            nextButton.Location = new Point(1564, 732);
+            nextButton.Location = new Point(1660, 832);
             nextButton.Name = "nextButton";
             nextButton.Size = new Size(211, 124);
             nextButton.TabIndex = 0;
@@ -73,7 +73,7 @@
             userAnswerTextBox.Font = new Font("Arial", 72F, FontStyle.Bold, GraphicsUnit.Point, 204);
             userAnswerTextBox.Location = new Point(12, 510);
             userAnswerTextBox.Name = "userAnswerTextBox";
-            userAnswerTextBox.Size = new Size(1763, 118);
+            userAnswerTextBox.Size = new Size(1859, 118);
             userAnswerTextBox.TabIndex = 3;
             userAnswerTextBox.TextChanged += userAnswerTextBox_TextChanged;
             // 
@@ -92,7 +92,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1787, 868);
+            ClientSize = new Size(1883, 968);
             Controls.Add(errorLabel);
             Controls.Add(userAnswerTextBox);
             Controls.Add(questionNumberLabel);

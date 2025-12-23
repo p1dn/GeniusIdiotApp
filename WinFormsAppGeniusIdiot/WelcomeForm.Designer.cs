@@ -31,6 +31,7 @@
             welcomeTextLabel = new Label();
             userNameTextBox = new TextBox();
             enterNameLabel = new Label();
+            startButton = new Button();
             SuspendLayout();
             // 
             // welcomeTextLabel
@@ -47,26 +48,39 @@
             // userNameTextBox
             // 
             userNameTextBox.Font = new Font("Arial", 72F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            userNameTextBox.Location = new Point(12, 587);
+            userNameTextBox.Location = new Point(2, 460);
             userNameTextBox.Name = "userNameTextBox";
             userNameTextBox.Size = new Size(1857, 118);
             userNameTextBox.TabIndex = 1;
+            userNameTextBox.TextChanged += userNameTextBox_TextChanged;
             // 
             // enterNameLabel
             // 
             enterNameLabel.AutoSize = true;
             enterNameLabel.Font = new Font("Arial", 48F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            enterNameLabel.Location = new Point(642, 476);
+            enterNameLabel.Location = new Point(642, 363);
             enterNameLabel.Name = "enterNameLabel";
             enterNameLabel.Size = new Size(619, 75);
             enterNameLabel.TabIndex = 2;
             enterNameLabel.Text = "Введите ваше имя";
+            // 
+            // startButton
+            // 
+            startButton.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            startButton.Location = new Point(795, 601);
+            startButton.Name = "startButton";
+            startButton.Size = new Size(279, 144);
+            startButton.TabIndex = 3;
+            startButton.Text = "Начать";
+            startButton.UseVisualStyleBackColor = true;
+            startButton.Click += startButton_Click;
             // 
             // WelcomeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1881, 964);
+            Controls.Add(startButton);
             Controls.Add(enterNameLabel);
             Controls.Add(userNameTextBox);
             Controls.Add(welcomeTextLabel);
@@ -82,5 +96,6 @@
         private Label welcomeTextLabel;
         private TextBox userNameTextBox;
         private Label enterNameLabel;
+        private Button startButton;
     }
 }
