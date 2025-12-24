@@ -60,24 +60,10 @@ namespace WinFormsAppGeniusIdiot
             questionNumberLabel.Text = $"Вопрос: {questionNumber++}";
         }
 
-        private void questionNumberLabel_Click(object sender, EventArgs e)
-        {
+        private void questionNumberLabel_Click(object sender, EventArgs e) { }
 
-        }
+        private void questionLabel_Click(object sender, EventArgs e) { }
 
-        private void questionLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void errorLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void userAnswerTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        private void userAnswerTextBox_TextChanged(object sender, EventArgs e) { }
     }
 }

@@ -79,7 +79,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1881, 964);
+            ClientSize = new Size(1884, 961);
             Controls.Add(startButton);
             Controls.Add(enterNameLabel);
             Controls.Add(userNameTextBox);

@@ -14,20 +14,11 @@ namespace WinFormsAppGeniusIdiot
         {
             InitializeComponent();
         }
-        private void WelcomeForm_Load(object sender, EventArgs e)
-        {
+        private void WelcomeForm_Load(object sender, EventArgs e) { }
 
-        }
+        private void welcomeTextLabel_Click(object sender, EventArgs e) { }
 
-        private void welcomeTextLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void userNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        private void userNameTextBox_TextChanged(object sender, EventArgs e) { }
 
         private void startButton_Click(object sender, EventArgs e)
         {

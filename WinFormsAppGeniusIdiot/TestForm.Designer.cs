@@ -32,7 +32,6 @@
             questionLabel = new Label();
             questionNumberLabel = new Label();
             userAnswerTextBox = new TextBox();
-            errorLabel = new Label();
             SuspendLayout();
             // 
             // nextButton
@@ -77,23 +76,11 @@
             userAnswerTextBox.TabIndex = 3;
             userAnswerTextBox.TextChanged += userAnswerTextBox_TextChanged;
             // 
-            // errorLabel
-            // 
-            errorLabel.AutoSize = true;
-            errorLabel.Font = new Font("Arial", 24F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            errorLabel.Location = new Point(12, 650);
-            errorLabel.Name = "errorLabel";
-            errorLabel.Size = new Size(232, 37);
-            errorLabel.TabIndex = 4;
-            errorLabel.Text = "Текст ошибки";
-            errorLabel.Click += errorLabel_Click;
-            // 
             // TestForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1883, 968);
-            Controls.Add(errorLabel);
+            ClientSize = new Size(1884, 961);
             Controls.Add(userAnswerTextBox);
             Controls.Add(questionNumberLabel);
             Controls.Add(questionLabel);
@@ -111,6 +98,5 @@
         private Label questionLabel;
         private Label questionNumberLabel;
         private TextBox userAnswerTextBox;
-        private Label errorLabel;
     }
 }
