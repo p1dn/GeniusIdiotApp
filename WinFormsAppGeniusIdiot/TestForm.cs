@@ -5,6 +5,7 @@ namespace WinFormsAppGeniusIdiot
 {
     public partial class TestForm : Form
     {
+        private QuestionRepository questionRepository;
         private List<Question> questions;
         private Question currentQuestion;
         private User user;
@@ -23,7 +24,9 @@ namespace WinFormsAppGeniusIdiot
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            questions = QuestionRepository.GetDefaultQuestions();
+            questionRepository = new QuestionRepository();
+            questionRepository.Load();
+            questions = QuestionRepository.Questions;
             user = new User(userName);
             questionNumber = 1;
 
@@ -41,8 +44,10 @@ namespace WinFormsAppGeniusIdiot
             bool endGame = questions.Count == 0;
             if (endGame)
             {
+                nextButton.Text = "Завершить";
                 string showDiagnosis = $"{user.Name}, вот ваш диагноз: {ConsoleView.GetDiagnosis(user.CountOfRightAnswers)}";
                 MessageBox.Show(showDiagnosis);
+                this.Close();
                 return;
             }
 

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WinFormsAppGeniusIdiot
@@ -25,20 +26,9 @@ namespace WinFormsAppGeniusIdiot
 
         private void ChooseLabel_Click(object sender, EventArgs e) { }
 
-        private void addQuestionButton_Click(object sender, EventArgs e)
-        {
+        private void addQuestionButton_Click(object sender, EventArgs e) => openNewForm(new AddQuestionForm());
 
-        }
-
-        private void startTestButton_Click(object sender, EventArgs e)
-        {
-            var test = new TestForm(userName);
-
-            test.FormClosed += (s, args) => this.Close();
-
-            this.Hide();
-            test.Show();
-        }
+        private void startTestButton_Click(object sender, EventArgs e) => openNewForm(new TestForm(userName));
 
         private void deleteQuestionButton_Click(object sender, EventArgs e)
         {
@@ -48,6 +38,14 @@ namespace WinFormsAppGeniusIdiot
         private void MenuForm_Load(object sender, EventArgs e)
         {
             ChooseLabel.Text = $"{userName}, Выберите вариант";
+        }
+
+        private void openNewForm(Form form)
+        {
+            form.FormClosed += (s, args) => this.Show();
+
+            this.Hide();
+            form.Show();
         }
     }
 }
