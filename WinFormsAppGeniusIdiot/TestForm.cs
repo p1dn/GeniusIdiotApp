@@ -9,6 +9,7 @@ namespace WinFormsAppGeniusIdiot
         private List<Question> questions;
         private Question currentQuestion;
         private User user;
+        private CheckingUserResponsesWinForms checkingUserResponsesWinForm;
         private int questionNumber;
         private readonly string userName;
 
@@ -28,6 +29,7 @@ namespace WinFormsAppGeniusIdiot
             questionRepository.Load();
             questions = QuestionRepository.Questions;
             user = new User(userName);
+            checkingUserResponsesWinForm = new CheckingUserResponsesWinForms();
             questionNumber = 1;
 
             showNextQuestion();
@@ -35,23 +37,26 @@ namespace WinFormsAppGeniusIdiot
 
         private void nextButton_Click(object sender, EventArgs e)
         {
-            int userAnswer = Convert.ToInt32(userAnswerTextBox.Text);
-            int correctAnswer = currentQuestion.CorrectAnswer;
-
-            if (userAnswer == currentQuestion.CorrectAnswer) user.CountOfRightAnswers++;
-            questions.Remove(currentQuestion);
-
-            bool endGame = questions.Count == 0;
-            if (endGame)
+            if (checkingUserResponsesWinForm.CheckingUserResponse(userAnswerTextBox.Text))
             {
-                nextButton.Text = "Завершить";
-                string showDiagnosis = $"{user.Name}, вот ваш диагноз: {ConsoleView.GetDiagnosis(user.CountOfRightAnswers)}";
-                MessageBox.Show(showDiagnosis);
-                this.Close();
-                return;
-            }
+                int userAnswer = Convert.ToInt32(userAnswerTextBox.Text);
+                int correctAnswer = currentQuestion.CorrectAnswer;
 
-            showNextQuestion();
+                if (userAnswer == currentQuestion.CorrectAnswer) user.CountOfRightAnswers++;
+                questions.Remove(currentQuestion);
+
+                bool endGame = questions.Count == 0;
+                if (endGame)
+                {
+                    nextButton.Text = "Завершить";
+                    string showDiagnosis = $"{user.Name}, вот ваш диагноз: {ConsoleView.GetDiagnosis(user.CountOfRightAnswers)}";
+                    MessageBox.Show(showDiagnosis);
+                    this.Close();
+                    return;
+                }
+
+                showNextQuestion();
+            }
         }
 
         private void showNextQuestion()

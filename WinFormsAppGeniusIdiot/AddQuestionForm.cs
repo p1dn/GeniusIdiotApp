@@ -14,6 +14,7 @@ namespace WinFormsAppGeniusIdiot
         private bool firstClick;
         private Question newQuestion;
         private QuestionRepository questionRepository;
+        private CheckingUserResponsesWinForms checkingUserResponsesWinForms;
 
         public AddQuestionForm()
         {
@@ -35,10 +36,13 @@ namespace WinFormsAppGeniusIdiot
             }
             else
             {
-                newQuestion.CorrectAnswer = Convert.ToInt32(newUesrsQuestionTextBox.Text);
-                QuestionRepository.Questions.Add(newQuestion);
-                questionRepository.Save();
-                this.Close();
+                if (checkingUserResponsesWinForms.CheckingUserResponse(newUesrsQuestionTextBox.Text))
+                {
+                    newQuestion.CorrectAnswer = Convert.ToInt32(newUesrsQuestionTextBox.Text);
+                    QuestionRepository.Questions.Add(newQuestion);
+                    questionRepository.Save();
+                    this.Close();
+                }
             }
         }
 
@@ -47,6 +51,7 @@ namespace WinFormsAppGeniusIdiot
             firstClick = true;
             newQuestion = new Question();
             questionRepository = new QuestionRepository();
+            checkingUserResponsesWinForms = new CheckingUserResponsesWinForms();
             questionRepository.Load();
         }
     }
