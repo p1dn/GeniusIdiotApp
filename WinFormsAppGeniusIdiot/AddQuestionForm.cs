@@ -27,7 +27,7 @@ namespace WinFormsAppGeniusIdiot
 
         private void addQuestionButton_Click(object sender, EventArgs e)
         {
-            if(firstClick)
+            if (firstClick)
             {
                 newQuestion.Problem = newUesrsQuestionTextBox.Text;
                 enterNewQuestionLabel.Text = "Введите ответ вопроса";
@@ -54,5 +54,7 @@ namespace WinFormsAppGeniusIdiot
             checkingUserResponsesWinForms = new CheckingUserResponsesWinForms();
             questionRepository.Load();
         }
+
+        private void menuButton_Click(object sender, EventArgs e) => this.Close();
     }
 }

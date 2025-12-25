@@ -32,6 +32,7 @@
             userNameTextBox = new TextBox();
             enterNameLabel = new Label();
             startButton = new Button();
+            exitButton = new Button();
             SuspendLayout();
             // 
             // welcomeTextLabel
@@ -75,11 +76,23 @@
             startButton.UseVisualStyleBackColor = true;
             startButton.Click += startButton_Click;
             // 
+            // exitButton
+            // 
+            exitButton.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            exitButton.Location = new Point(12, 864);
+            exitButton.Name = "exitButton";
+            exitButton.Size = new Size(143, 85);
+            exitButton.TabIndex = 4;
+            exitButton.Text = "Выход";
+            exitButton.UseVisualStyleBackColor = true;
+            exitButton.Click += exitButton_Click;
+            // 
             // WelcomeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1884, 961);
+            Controls.Add(exitButton);
             Controls.Add(startButton);
             Controls.Add(enterNameLabel);
             Controls.Add(userNameTextBox);
@@ -97,5 +110,6 @@
         private TextBox userNameTextBox;
         private Label enterNameLabel;
         private Button startButton;
+        private Button exitButton;
     }
 }

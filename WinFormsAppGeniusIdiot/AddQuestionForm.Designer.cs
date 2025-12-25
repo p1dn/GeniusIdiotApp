@@ -31,6 +31,7 @@
             addQuestionButton = new Button();
             newUesrsQuestionTextBox = new TextBox();
             enterNewQuestionLabel = new Label();
+            menuButton = new Button();
             SuspendLayout();
             // 
             // addQuestionButton
@@ -64,11 +65,23 @@
             enterNewQuestionLabel.Text = "Введите текст вопроса";
             enterNewQuestionLabel.Click += enterNewQuestionLabel_Click;
             // 
+            // menuButton
+            // 
+            menuButton.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            menuButton.Location = new Point(12, 864);
+            menuButton.Name = "menuButton";
+            menuButton.Size = new Size(143, 85);
+            menuButton.TabIndex = 6;
+            menuButton.Text = "Меню";
+            menuButton.UseVisualStyleBackColor = true;
+            menuButton.Click += menuButton_Click;
+            // 
             // AddQuestionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1884, 961);
+            Controls.Add(menuButton);
             Controls.Add(enterNewQuestionLabel);
             Controls.Add(newUesrsQuestionTextBox);
             Controls.Add(addQuestionButton);
@@ -84,5 +97,6 @@
         private Button addQuestionButton;
         private TextBox newUesrsQuestionTextBox;
         private Label enterNewQuestionLabel;
+        private Button menuButton;
     }
 }

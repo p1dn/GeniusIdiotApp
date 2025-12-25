@@ -33,6 +33,7 @@
             chooseQuestionLabel = new Label();
             previousButton = new Button();
             nextButton = new Button();
+            menuButton = new Button();
             SuspendLayout();
             // 
             // questionTextLabel
@@ -90,11 +91,23 @@
             nextButton.UseVisualStyleBackColor = true;
             nextButton.Click += nextButton_Click;
             // 
+            // menuButton
+            // 
+            menuButton.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            menuButton.Location = new Point(12, 864);
+            menuButton.Name = "menuButton";
+            menuButton.Size = new Size(143, 85);
+            menuButton.TabIndex = 6;
+            menuButton.Text = "Меню";
+            menuButton.UseVisualStyleBackColor = true;
+            menuButton.Click += menuButton_Click;
+            // 
             // DeleteQuestionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1884, 961);
+            Controls.Add(menuButton);
             Controls.Add(nextButton);
             Controls.Add(previousButton);
             Controls.Add(chooseQuestionLabel);
@@ -114,5 +127,6 @@
         private Label chooseQuestionLabel;
         private Button previousButton;
         private Button nextButton;
+        private Button menuButton;
     }
 }

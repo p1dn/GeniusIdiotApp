@@ -75,5 +75,7 @@ namespace WinFormsAppGeniusIdiot
         private void questionLabel_Click(object sender, EventArgs e) { }
 
         private void userAnswerTextBox_TextChanged(object sender, EventArgs e) { }
+
+        private void menuButton_Click(object sender, EventArgs e) => this.Close();
     }
 }

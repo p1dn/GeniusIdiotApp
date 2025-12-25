@@ -29,5 +29,7 @@ namespace WinFormsAppGeniusIdiot
             this.Hide();
             menu.Show();
         }
+
+        private void exitButton_Click(object sender, EventArgs e) => this.Close();
     }
 }

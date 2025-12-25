@@ -32,6 +32,7 @@
             deleteQuestionButton = new Button();
             addQuestionButton = new Button();
             ChooseLabel = new Label();
+            exitButton = new Button();
             SuspendLayout();
             // 
             // startTestButton
@@ -78,11 +79,23 @@
             ChooseLabel.Text = "Label";
             ChooseLabel.Click += ChooseLabel_Click;
             // 
+            // exitButton
+            // 
+            exitButton.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            exitButton.Location = new Point(12, 864);
+            exitButton.Name = "exitButton";
+            exitButton.Size = new Size(143, 85);
+            exitButton.TabIndex = 5;
+            exitButton.Text = "Выход";
+            exitButton.UseVisualStyleBackColor = true;
+            exitButton.Click += exitButton_Click;
+            // 
             // MenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1884, 961);
+            Controls.Add(exitButton);
             Controls.Add(ChooseLabel);
             Controls.Add(addQuestionButton);
             Controls.Add(deleteQuestionButton);
@@ -100,5 +113,6 @@
         private Button deleteQuestionButton;
         private Button addQuestionButton;
         private Label ChooseLabel;
+        private Button exitButton;
     }
 }

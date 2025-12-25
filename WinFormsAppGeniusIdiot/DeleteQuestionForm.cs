@@ -55,5 +55,7 @@ namespace WinFormsAppGeniusIdiot
         private void chooseQuestionLabel_Click(object sender, EventArgs e) { }
 
         private void changeQuestion() => questionTextLabel.Text = QuestionRepository.Questions[questionNumber].Problem;
+
+        private void menuButton_Click(object sender, EventArgs e) => this.Close();
     }
 }
