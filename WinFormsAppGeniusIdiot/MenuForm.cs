@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibraryGeniusIdiot;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,7 +33,8 @@ namespace WinFormsAppGeniusIdiot
 
         private void deleteQuestionButton_Click(object sender, EventArgs e)
         {
-
+            if (QuestionRepository.Questions.Count == 0) MessageBox.Show("Вопросов нет");
+            else openNewForm(new DeleteQuestionForm());
         }
 
         private void MenuForm_Load(object sender, EventArgs e)
