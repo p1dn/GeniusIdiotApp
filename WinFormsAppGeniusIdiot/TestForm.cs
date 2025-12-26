@@ -9,6 +9,7 @@ namespace WinFormsAppGeniusIdiot
         private List<Question> questions;
         private Question currentQuestion;
         private User user;
+        private UserManager userManager;
         private CheckingUserResponsesWinForms checkingUserResponsesWinForm;
         private int questionNumber;
         private readonly string userName;
@@ -30,6 +31,8 @@ namespace WinFormsAppGeniusIdiot
             questions = QuestionRepository.Questions;
             user = new User(userName);
             checkingUserResponsesWinForm = new CheckingUserResponsesWinForms();
+            userManager = new UserManager();
+            userManager.Load();
             questionNumber = 1;
 
             showNextQuestion();
@@ -46,9 +49,11 @@ namespace WinFormsAppGeniusIdiot
                 questions.Remove(currentQuestion);
 
                 bool endGame = questions.Count == 0;
+                if (questions.Count == 1) nextButton.Text = "Завершить";
                 if (endGame)
                 {
-                    nextButton.Text = "Завершить";
+                    UserManager.Users.Add(user);
+                    userManager.Save();
                     string showDiagnosis = $"{user.Name}, вот ваш диагноз: {ConsoleView.GetDiagnosis(user.CountOfRightAnswers)}";
                     MessageBox.Show(showDiagnosis);
                     this.Close();

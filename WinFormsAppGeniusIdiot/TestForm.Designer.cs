@@ -49,10 +49,10 @@
             // questionLabel
             // 
             questionLabel.AutoSize = true;
-            questionLabel.Font = new Font("Arial", 36F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            questionLabel.Font = new Font("Arial", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
             questionLabel.Location = new Point(12, 252);
             questionLabel.Name = "questionLabel";
-            questionLabel.Size = new Size(364, 56);
+            questionLabel.Size = new Size(284, 44);
             questionLabel.TabIndex = 1;
             questionLabel.Text = "Текст вопроса";
             questionLabel.Click += questionLabel_Click;
