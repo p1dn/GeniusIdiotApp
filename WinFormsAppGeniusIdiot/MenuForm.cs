@@ -1,13 +1,4 @@
-﻿using ClassLibraryGeniusIdiot;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+﻿using static System.Net.Mime.MediaTypeNames;
 
 namespace WinFormsAppGeniusIdiot
 {
@@ -50,5 +41,9 @@ namespace WinFormsAppGeniusIdiot
         }
 
         private void exitButton_Click(object sender, EventArgs e) => this.Close();
+
+        private void перезапускToolStripMenuItem_Click(object sender, EventArgs e) => System.Windows.Forms.Application.Restart();
+
+        private void списокРезультатовToolStripMenuItem_Click(object sender, EventArgs e) => openNewForm(new UserResultsForm());
     }
 }

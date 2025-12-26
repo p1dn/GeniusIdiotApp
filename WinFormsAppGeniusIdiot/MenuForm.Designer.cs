@@ -33,6 +33,11 @@
             addQuestionButton = new Button();
             ChooseLabel = new Label();
             exitButton = new Button();
+            menuStrip1 = new MenuStrip();
+            дополнительноToolStripMenuItem = new ToolStripMenuItem();
+            перезапускToolStripMenuItem = new ToolStripMenuItem();
+            списокРезультатовToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // startTestButton
@@ -90,6 +95,36 @@
             exitButton.UseVisualStyleBackColor = true;
             exitButton.Click += exitButton_Click;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { дополнительноToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1884, 24);
+            menuStrip1.TabIndex = 6;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // дополнительноToolStripMenuItem
+            // 
+            дополнительноToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { перезапускToolStripMenuItem, списокРезультатовToolStripMenuItem });
+            дополнительноToolStripMenuItem.Name = "дополнительноToolStripMenuItem";
+            дополнительноToolStripMenuItem.Size = new Size(107, 20);
+            дополнительноToolStripMenuItem.Text = "Дополнительно";
+            // 
+            // перезапускToolStripMenuItem
+            // 
+            перезапускToolStripMenuItem.Name = "перезапускToolStripMenuItem";
+            перезапускToolStripMenuItem.Size = new Size(184, 22);
+            перезапускToolStripMenuItem.Text = "Перезапуск";
+            перезапускToolStripMenuItem.Click += перезапускToolStripMenuItem_Click;
+            // 
+            // списокРезультатовToolStripMenuItem
+            // 
+            списокРезультатовToolStripMenuItem.Name = "списокРезультатовToolStripMenuItem";
+            списокРезультатовToolStripMenuItem.Size = new Size(184, 22);
+            списокРезультатовToolStripMenuItem.Text = "Список Результатов";
+            списокРезультатовToolStripMenuItem.Click += списокРезультатовToolStripMenuItem_Click;
+            // 
             // MenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -100,9 +135,13 @@
             Controls.Add(addQuestionButton);
             Controls.Add(deleteQuestionButton);
             Controls.Add(startTestButton);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "MenuForm";
             Text = "MenuForm";
             Load += MenuForm_Load;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -114,5 +153,9 @@
         private Button addQuestionButton;
         private Label ChooseLabel;
         private Button exitButton;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem дополнительноToolStripMenuItem;
+        private ToolStripMenuItem перезапускToolStripMenuItem;
+        private ToolStripMenuItem списокРезультатовToolStripMenuItem;
     }
 }
