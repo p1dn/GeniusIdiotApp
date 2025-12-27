@@ -1,8 +1,9 @@
-﻿using System;
+﻿using ClassLibraryGeniusIdiot;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ClassLibraryGeniusIdiot
+namespace ConsoleApp3
 {
     public static class TestManager
     {
