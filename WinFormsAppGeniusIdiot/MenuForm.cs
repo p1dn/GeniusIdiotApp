@@ -22,10 +22,7 @@ namespace WinFormsAppGeniusIdiot
 
         private void startTestButton_Click(object sender, EventArgs e) => openNewForm(new TestForm(userName));
 
-        private void deleteQuestionButton_Click(object sender, EventArgs e)
-        {
-            openNewForm(new DeleteQuestionForm());
-        }
+        private void deleteQuestionButton_Click(object sender, EventArgs e) => openNewForm(new DeleteQuestionForm());
 
         private void MenuForm_Load(object sender, EventArgs e)
         {

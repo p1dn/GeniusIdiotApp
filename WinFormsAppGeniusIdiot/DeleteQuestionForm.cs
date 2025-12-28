@@ -12,50 +12,44 @@ namespace WinFormsAppGeniusIdiot
     public partial class DeleteQuestionForm : Form
     {
         private QuestionRepository questionRepository;
-        private int questionNumber;
+
         public DeleteQuestionForm()
         {
             InitializeComponent();
+        }
+
+        private void questionsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void DeleteQuestionForm_Load(object sender, EventArgs e)
         {
             questionRepository = new QuestionRepository();
             questionRepository.Load();
-            questionNumber = 0;
 
-            changeQuestion();
+            foreach (var question in QuestionRepository.Questions)
+            {
+                questionsDataGridView.Rows.Add(question.Problem, question.CorrectAnswer);
+            }
         }
-
-        private void questionTextLabel_Click(object sender, EventArgs e) { }
-
-        private void previousButton_Click(object sender, EventArgs e)
-        {
-            if (questionNumber == 0) questionNumber = QuestionRepository.Questions.Count - 1;
-            else questionNumber -= 1;
-
-            changeQuestion();
-        }
-
-        private void nextButton_Click(object sender, EventArgs e)
-        {
-            if (questionNumber == QuestionRepository.Questions.Count - 1) questionNumber = 0;
-            else questionNumber += 1;
-
-            changeQuestion();
-        }
-
-        private void deleteQuestionButton_Click(object sender, EventArgs e)
-        {
-            QuestionRepository.Questions.RemoveAt(questionNumber);
-            questionRepository.Save();
-            this.Close();
-        }
-
-        private void chooseQuestionLabel_Click(object sender, EventArgs e) { }
-
-        private void changeQuestion() => questionTextLabel.Text = QuestionRepository.Questions[questionNumber].Problem;
 
         private void menuButton_Click(object sender, EventArgs e) => this.Close();
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int rowIndex = questionsDataGridView.SelectedRows[0].Index;
+
+                QuestionRepository.Questions.RemoveAt(rowIndex);
+                questionsDataGridView.Rows.RemoveAt(rowIndex);
+                questionRepository.Save();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Вы должны выбрать ОДНУ строку для удаления");
+            }
+        }
     }
 }

@@ -28,68 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            questionTextLabel = new Label();
-            deleteQuestionButton = new Button();
-            chooseQuestionLabel = new Label();
-            previousButton = new Button();
-            nextButton = new Button();
+            questionsDataGridView = new DataGridView();
             menuButton = new Button();
+            deleteButton = new Button();
+            TextColumn = new DataGridViewTextBoxColumn();
+            CorrectAnswerColumn = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)questionsDataGridView).BeginInit();
             SuspendLayout();
             // 
-            // questionTextLabel
+            // questionsDataGridView
             // 
-            questionTextLabel.AutoSize = true;
-            questionTextLabel.Font = new Font("Arial", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            questionTextLabel.Location = new Point(12, 207);
-            questionTextLabel.Name = "questionTextLabel";
-            questionTextLabel.Size = new Size(284, 44);
-            questionTextLabel.TabIndex = 0;
-            questionTextLabel.Text = "Текст вопроса";
-            questionTextLabel.Click += questionTextLabel_Click;
-            // 
-            // deleteQuestionButton
-            // 
-            deleteQuestionButton.Font = new Font("Arial", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            deleteQuestionButton.Location = new Point(1600, 801);
-            deleteQuestionButton.Name = "deleteQuestionButton";
-            deleteQuestionButton.Size = new Size(272, 148);
-            deleteQuestionButton.TabIndex = 1;
-            deleteQuestionButton.Text = "Удалить вопрос";
-            deleteQuestionButton.UseVisualStyleBackColor = true;
-            deleteQuestionButton.Click += deleteQuestionButton_Click;
-            // 
-            // chooseQuestionLabel
-            // 
-            chooseQuestionLabel.AutoSize = true;
-            chooseQuestionLabel.Font = new Font("Arial", 36F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            chooseQuestionLabel.Location = new Point(723, 9);
-            chooseQuestionLabel.Name = "chooseQuestionLabel";
-            chooseQuestionLabel.Size = new Size(450, 56);
-            chooseQuestionLabel.TabIndex = 2;
-            chooseQuestionLabel.Text = "Выберите вопрос";
-            chooseQuestionLabel.Click += chooseQuestionLabel_Click;
-            // 
-            // previousButton
-            // 
-            previousButton.Font = new Font("Arial", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            previousButton.Location = new Point(12, 362);
-            previousButton.Name = "previousButton";
-            previousButton.Size = new Size(236, 124);
-            previousButton.TabIndex = 3;
-            previousButton.Text = "Предыдущий";
-            previousButton.UseVisualStyleBackColor = true;
-            previousButton.Click += previousButton_Click;
-            // 
-            // nextButton
-            // 
-            nextButton.Font = new Font("Arial", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            nextButton.Location = new Point(1636, 362);
-            nextButton.Name = "nextButton";
-            nextButton.Size = new Size(236, 124);
-            nextButton.TabIndex = 4;
-            nextButton.Text = "Следующий";
-            nextButton.UseVisualStyleBackColor = true;
-            nextButton.Click += nextButton_Click;
+            questionsDataGridView.AllowUserToAddRows = false;
+            questionsDataGridView.AllowUserToDeleteRows = false;
+            questionsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            questionsDataGridView.Columns.AddRange(new DataGridViewColumn[] { TextColumn, CorrectAnswerColumn });
+            questionsDataGridView.Location = new Point(12, 12);
+            questionsDataGridView.Name = "questionsDataGridView";
+            questionsDataGridView.ReadOnly = true;
+            questionsDataGridView.Size = new Size(1860, 800);
+            questionsDataGridView.TabIndex = 0;
+            questionsDataGridView.CellContentClick += questionsDataGridView_CellContentClick;
             // 
             // menuButton
             // 
@@ -97,36 +55,59 @@
             menuButton.Location = new Point(12, 864);
             menuButton.Name = "menuButton";
             menuButton.Size = new Size(143, 85);
-            menuButton.TabIndex = 6;
+            menuButton.TabIndex = 7;
             menuButton.Text = "Меню";
             menuButton.UseVisualStyleBackColor = true;
             menuButton.Click += menuButton_Click;
+            // 
+            // deleteButton
+            // 
+            deleteButton.Font = new Font("Arial", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            deleteButton.Location = new Point(1654, 818);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(218, 131);
+            deleteButton.TabIndex = 8;
+            deleteButton.Text = "Удалить вопрос";
+            deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += deleteButton_Click;
+            // 
+            // TextColumn
+            // 
+            TextColumn.FillWeight = 800F;
+            TextColumn.HeaderText = "Текст";
+            TextColumn.Name = "TextColumn";
+            TextColumn.ReadOnly = true;
+            TextColumn.Width = 1120;
+            // 
+            // CorrectAnswerColumn
+            // 
+            CorrectAnswerColumn.FillWeight = 800F;
+            CorrectAnswerColumn.HeaderText = "Ответ";
+            CorrectAnswerColumn.Name = "CorrectAnswerColumn";
+            CorrectAnswerColumn.ReadOnly = true;
+            CorrectAnswerColumn.Width = 700;
             // 
             // DeleteQuestionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1884, 961);
+            Controls.Add(deleteButton);
             Controls.Add(menuButton);
-            Controls.Add(nextButton);
-            Controls.Add(previousButton);
-            Controls.Add(chooseQuestionLabel);
-            Controls.Add(deleteQuestionButton);
-            Controls.Add(questionTextLabel);
+            Controls.Add(questionsDataGridView);
             Name = "DeleteQuestionForm";
             Text = "DeleteQuestionForm";
             Load += DeleteQuestionForm_Load;
+            ((System.ComponentModel.ISupportInitialize)questionsDataGridView).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Label questionTextLabel;
-        private Button deleteQuestionButton;
-        private Label chooseQuestionLabel;
-        private Button previousButton;
-        private Button nextButton;
+        private DataGridView questionsDataGridView;
         private Button menuButton;
+        private Button deleteButton;
+        private DataGridViewTextBoxColumn TextColumn;
+        private DataGridViewTextBoxColumn CorrectAnswerColumn;
     }
 }
