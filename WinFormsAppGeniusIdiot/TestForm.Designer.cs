@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             nextButton = new Button();
             questionLabel = new Label();
             questionNumberLabel = new Label();
             userAnswerTextBox = new TextBox();
             menuButton = new Button();
+            answerTimer = new System.Windows.Forms.Timer(components);
+            timerLabel = new Label();
             SuspendLayout();
             // 
             // nextButton
@@ -88,11 +91,27 @@
             menuButton.UseVisualStyleBackColor = true;
             menuButton.Click += menuButton_Click;
             // 
+            // answerTimer
+            // 
+            answerTimer.Tick += answerTimer_Tick;
+            // 
+            // timerLabel
+            // 
+            timerLabel.AutoSize = true;
+            timerLabel.Font = new Font("Arial", 36F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            timerLabel.Location = new Point(917, 435);
+            timerLabel.Name = "timerLabel";
+            timerLabel.Size = new Size(78, 56);
+            timerLabel.TabIndex = 6;
+            timerLabel.Text = "10";
+            timerLabel.Click += timerLabel_Click;
+            // 
             // TestForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1884, 961);
+            Controls.Add(timerLabel);
             Controls.Add(menuButton);
             Controls.Add(userAnswerTextBox);
             Controls.Add(questionNumberLabel);
@@ -112,5 +131,7 @@
         private Label questionNumberLabel;
         private TextBox userAnswerTextBox;
         private Button menuButton;
+        private System.Windows.Forms.Timer answerTimer;
+        private Label timerLabel;
     }
 }
